@@ -43,7 +43,7 @@ script:
  - ls build
  - ls dist
  - if [[ $TRAVIS_OS_NAME == osx ]];   then export BINARY_ZIPPED=dist/${PACKAGE_NAME}.zip;    export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.zip; fi
- - if [[ $TRAVIS_OS_NAME == linux ]]; then export BINARY_ZIPPED=dist/${PACKAGE_NAME}.tar.gz; export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.tar.gz; ; fi
+ - if [[ $TRAVIS_OS_NAME == linux ]]; then export BINARY_ZIPPED=dist/${PACKAGE_NAME}.tar.gz; export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.tar.gz; fi
  - if [[ $TRAVIS_OS_NAME == linux ]]; then cd dist; tar zcfv ${PACKAGE_NAME}.tar.gz ${PACKAGE_NAME}; cd ..; fi
  - echo $BINARY_ZIPPED
  - bash dropbox_uploader.sh upload ${BINARY_ZIPPED} ${BINARY_ZIPPED_BARE}
