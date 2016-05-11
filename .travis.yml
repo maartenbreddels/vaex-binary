@@ -38,11 +38,11 @@ script:
  - python bin/make_dropbox_uploader_conf.py ~/.dropbox_uploader
  - curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
 # - bash dropbox_uploader.sh upload setup.py setup.py
- - if [[ $TRAVIS_OS_NAME == osx ]] && [[ "$TRAVIS_TAG" != "" ]]; then echo "release"; bash bin/build_binary_osx.sh; ls dist; fi
- - if [[ $TRAVIS_OS_NAME == linux ]] && [[ "$TRAVIS_TAG" != "" ]]; then echo "release"; pip install pyinstaller; pyinstaller vaex.spec; ls build; fi
- - if [[ $TRAVIS_OS_NAME == osx ]] && [[ "$TRAVIS_TAG" != "" ]];   then export BINARY_ZIPPED=dist/${PACKAGE_NAME}.zip;    export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.zip; fi
- - if [[ $TRAVIS_OS_NAME == linux ]] && [[ "$TRAVIS_TAG" != "" ]]; then export BINARY_ZIPPED=dist/${PACKAGE_NAME}.tar.gz; export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.tar.gz; ; fi
- - if [[ $TRAVIS_OS_NAME == linux ]] && [[ "$TRAVIS_TAG" != "" ]]; then cd dist; tar zcfv ${PACKAGE_NAME}.tar.gz ${PACKAGE_NAME}; cd ..; fi
+ - if [[ $TRAVIS_OS_NAME == osx ]]; then echo "release"; bash bin/build_binary_osx.sh; ls dist; fi
+ - if [[ $TRAVIS_OS_NAME == linux ]]; then echo "release"; pip install pyinstaller; pyinstaller vaex.spec; ls build; fi
+ - if [[ $TRAVIS_OS_NAME == osx ]];   then export BINARY_ZIPPED=dist/${PACKAGE_NAME}.zip;    export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.zip; fi
+ - if [[ $TRAVIS_OS_NAME == linux ]]; then export BINARY_ZIPPED=dist/${PACKAGE_NAME}.tar.gz; export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.tar.gz; ; fi
+ - if [[ $TRAVIS_OS_NAME == linux ]]; then cd dist; tar zcfv ${PACKAGE_NAME}.tar.gz ${PACKAGE_NAME}; cd ..; fi
  - echo $BINARY_ZIPPED
  - bash dropbox_uploader.sh upload ${BINARY_ZIPPED} ${BINARY_ZIPPED_BARE}
  #- if [[ $TRAVIS_OS_NAME == osx ]] && [[ "$TRAVIS_TAG" != "" ]]; then bash dropbox_uploader.sh upload dist/${PACKAGE_NAME}.zip ${PACKAGE_NAME}.zip; fi
