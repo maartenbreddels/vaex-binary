@@ -4,7 +4,6 @@ python: 3.5
 os:
  - linux
  - osx
-
 before_install:
 #  - sudo apt-get update
 #  - sudo apt-get install libhdf5-serial-dev libqt4-dev
@@ -44,3 +43,4 @@ script:
  - if [[ $TRAVIS_OS_NAME == linux ]]; then cd dist; tar zcfv ${PACKAGE_NAME}.tar.gz ${PACKAGE_NAME}; cd ..; fi
  - echo $BINARY_ZIPPED
  - bash dropbox_uploader.sh upload ${BINARY_ZIPPED} ${BINARY_ZIPPED_BARE}
+
