@@ -32,11 +32,11 @@ install:
  - python setup.py install
 script:
 # - python test/dataset.py
- - export PACKAGE_NAME=`python -c "import vaex; print vaex.__build_name__"`
+ - export PACKAGE_NAME=`python -c "import vaex; print(vaex.__build_name__)"`
  - echo $PACKAGE_NAME
  - echo $TRAVIS_OS_NAME
  - if [[ $TRAVIS_OS_NAME == osx ]]; then echo "release"; bash bin/build_binary_osx.sh; fi
- - if [[ $TRAVIS_OS_NAME == linux ]]; then echo "release"; pip install pyinstaller==3.1; pyinstaller vaex.spec; fi
+ - if [[ $TRAVIS_OS_NAME == linux ]]; then echo "release"; pip install pyinstaller==3.1; pyinstaller misc/vaex.spec; fi
  - ls build
  - ls dist
  - if [[ $TRAVIS_OS_NAME == osx ]];   then export BINARY_ZIPPED=dist/${PACKAGE_NAME}.zip;    export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.zip; fi
