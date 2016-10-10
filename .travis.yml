@@ -45,4 +45,3 @@ script:
  - echo $BINARY_ZIPPED
  - bash dropbox_uploader.sh upload ${BINARY_ZIPPED} ${BINARY_ZIPPED_BARE}
 
-
