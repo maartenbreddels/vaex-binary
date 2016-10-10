@@ -23,6 +23,8 @@ before_install:
 #  - conda info -a
 #  - conda create -q -n test-environment python=$PYTHON_VERSION numpy scipy pyqt matplotlib pyopengl h5py numexpr astropy tornado cython
 #  - source activate test-environment
+  - git clone https://github.com/maartenbreddels/vaex
+  - cd vaex
   - pip install -r requirements.txt
 install:
  - python bin/make_dropbox_uploader_conf.py ~/.dropbox_uploader
