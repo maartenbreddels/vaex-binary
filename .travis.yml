@@ -45,7 +45,7 @@ before_install:
      which pip;
      which virtualenv;
      ls venv/bin;
-     pip install requests[security]; # see http://stackoverflow.com/questions/29134512/insecureplatformwarning-a-true-sslcontext-object-is-not-available-this-prevent
+     pip install requests[security];
     fi
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
