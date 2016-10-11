@@ -41,6 +41,9 @@ before_install:
      python -m venv venv;
      source venv/bin/activate;
      which python;
+     which pip;
+     which pip3;
+     alias pip=pip3;
     fi
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
