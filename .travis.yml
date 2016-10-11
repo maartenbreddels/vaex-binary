@@ -41,6 +41,7 @@ before_install:
     fi
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
+  - pip install --upgrade pip
   - pip install numpy # kapteyn package complaints otherwise
   - pip install -r requirements.txt
 install:
