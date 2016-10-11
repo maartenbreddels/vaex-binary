@@ -37,7 +37,7 @@ before_install:
      fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
      which python;
-     echo "activate venv"
+     echo "activate venv";
      python -m venv venv;
      source activate venv;
      which python;
