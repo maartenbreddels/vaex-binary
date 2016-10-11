@@ -38,13 +38,13 @@ before_install:
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
      which python;
      echo "activate venv";
-     python -m venv venv;
+     pip install --user virtualenv;
+     virtualenv venv;
      source venv/bin/activate;
      which python;
      which pip;
+     which virtualenv;
      ls venv/bin;
-     which pip3;
-     alias pip=pip3;
     fi
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
@@ -63,6 +63,7 @@ script:
  - export PACKAGE_NAME=`python -c "import vaex; print(vaex.__build_name__)"`
  - echo $PACKAGE_NAME
  - echo $TRAVIS_OS_NAME
+ - if [[ $TRAVIS_OS_NAME == osx ]]; then ls /Users/travis/build/maartenbreddels/vaex-binary/venv/lib/; fi
  - if [[ $TRAVIS_OS_NAME == osx ]]; then echo "release"; bash bin/build_binary_osx.sh; fi
  - if [[ $TRAVIS_OS_NAME == linux ]]; then echo "release"; pip install pyinstaller==3.1; cp misc/vaex.spec .; pyinstaller vaex.spec; fi
  - ls build
