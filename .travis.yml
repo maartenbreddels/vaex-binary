@@ -42,6 +42,7 @@ before_install:
      source venv/bin/activate;
      which python;
      which pip;
+     ls venv/bin;
      which pip3;
      alias pip=pip3;
     fi
