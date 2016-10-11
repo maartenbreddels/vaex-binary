@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 ls /opt/python/
-export PATH=/opt/python/3.5/bin:$PATH
+export PATH=/opt/python/cp35-cp35m/bin:$PATH
 which python
 
 #pip install
