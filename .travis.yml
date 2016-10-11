@@ -33,9 +33,6 @@ before_install:
      brew update;
      brew install python;
      brew install brew install pyqt5 --with-python --without-python3;
-     pip install virtualenv;
-     virtualenv venv --no-site-packages;
-     source venv/bin/activate;
      fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
      which python;
