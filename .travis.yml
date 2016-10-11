@@ -39,7 +39,7 @@ before_install:
      which python;
      echo "activate venv";
      pip install virtualenv;
-     virtualenv venv;
+     virtualenv venv --no-site-packages;
      source venv/bin/activate;
      which python;
      which pip;
