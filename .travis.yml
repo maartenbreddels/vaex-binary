@@ -1,12 +1,24 @@
 #language: c
 language: python
-python: 3.5
-osx_image: xcode6.4
-os:
- - linux
- - osx
+
+matrix:
+  include:
+    - os: linux
+      python: 3.5
+
+    - os: osx
+      sudo: required
+      language: generic
+      osx_image: xcode6.4
+
 before_install:
-#  - sudo apt-get update
+   - if [[ $TRAVIS_OS_NAME == 'osx' ]];then
+     brew update;
+     brew install python3;
+     python3 -m venv venv;
+     source venv/bin/activate;
+     fi
+   #  - sudo apt-get update
 #  - sudo apt-get install libhdf5-serial-dev libqt4-dev
 #  - if [[ $TRAVIS_OS_NAME == linux ]]; then sudo apt-get install libc-bin=2.12.1-0ubuntu10.2 libc6=2.12.1-0ubuntu10.2; fi
 #  - echo $TRAVIS_TAG
@@ -32,7 +44,7 @@ install:
  - pip install -e .
  - pip install PyQt5
  - pip install qtconsole appdirs
- - pip install setuptools==19.2
+ - pip install setuptools== 19.2
 script:
 # - python test/dataset.py
  - export PACKAGE_NAME=`python -c "import vaex; print(vaex.__build_name__)"`
