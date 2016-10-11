@@ -38,8 +38,8 @@ before_install:
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
      which python;
      echo "activate venv"
-     python3 -m venv venv;
-     source venv/bin/activate;
+     python -m venv venv;
+     source activate venv
      which python;
     fi
   - git clone https://github.com/maartenbreddels/vaex
