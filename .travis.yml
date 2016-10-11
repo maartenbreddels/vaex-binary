@@ -30,13 +30,12 @@ before_install:
 #  - conda create -q -n test-environment python=$PYTHON_VERSION numpy scipy pyqt matplotlib pyopengl h5py numexpr astropy tornado cython
 #  - source activate test-environment
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
-     which python;
+     brew update;
+     brew install python;
      pip install virtualenv;
      virtualenv venv --no-site-packages;
      source venv/bin/activate;
-     which pip;
-     which virtualenv;
-    fi
+     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
      which python;
      echo "activate venv";
