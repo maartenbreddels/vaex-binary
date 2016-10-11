@@ -37,6 +37,7 @@ before_install:
      fi
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
+  - pip install numpy # kapteyn package complaints otherwise
   - pip install -r requirements.txt
 install:
  - python bin/make_dropbox_uploader_conf.py ~/.dropbox_uploader
