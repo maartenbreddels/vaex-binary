@@ -47,7 +47,7 @@ before_install:
      ls venv/bin;
      pip install requests[security];
      ls venv/lib/python3.5;
-     print -c "from matplotlib.externals.six.moves import tkinter as Tk; print (Tk.__file__)"
+     python -c "from matplotlib.externals.six.moves import tkinter as Tk; print (Tk.__file__)"
     fi
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
