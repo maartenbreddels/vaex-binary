@@ -32,7 +32,7 @@ before_install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
      brew update;
      brew install python;
-     brew install brew install pyqt5 --with-python --without-python3;
+     brew install brew install pyqt5;
      fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
      which python;
