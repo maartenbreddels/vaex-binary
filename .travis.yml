@@ -12,12 +12,6 @@ matrix:
       osx_image: xcode6.4
 
 before_install:
-   - if [[ $TRAVIS_OS_NAME == 'osx' ]];then
-     brew update;
-     brew install python3;
-     python3 -m venv venv;
-     source venv/bin/activate;
-     fi
    #  - sudo apt-get update
 #  - sudo apt-get install libhdf5-serial-dev libqt4-dev
 #  - if [[ $TRAVIS_OS_NAME == linux ]]; then sudo apt-get install libc-bin=2.12.1-0ubuntu10.2 libc6=2.12.1-0ubuntu10.2; fi
@@ -35,6 +29,12 @@ before_install:
 #  - conda info -a
 #  - conda create -q -n test-environment python=$PYTHON_VERSION numpy scipy pyqt matplotlib pyopengl h5py numexpr astropy tornado cython
 #  - source activate test-environment
+  - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
+     brew update;
+     brew install python3;
+     python3 -m venv venv;
+     source venv/bin/activate;
+     fi
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
   - pip install -r requirements.txt
