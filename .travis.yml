@@ -47,7 +47,7 @@ before_install:
      ls venv/bin;
      pip install requests[security];
      ls venv/lib/python3.5;
-     python -c "from matplotlib.externals.six.moves import tkinter as Tk; print (Tk.__file__)"
+     python -c "from matplotlib.externals.six.moves import tkinter as Tk; print (Tk.__file__)";
     fi
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
@@ -68,7 +68,7 @@ script:
  - echo $TRAVIS_OS_NAME
  - if [[ $TRAVIS_OS_NAME == osx ]]; then ls /Users/travis/build/maartenbreddels/vaex-binary/venv/lib/; fi
  - if [[ $TRAVIS_OS_NAME == osx ]]; then echo "release"; bash bin/build_binary_osx.sh; fi
- - if [[ $TRAVIS_OS_NAME == linux ]]; then echo "release"; pip install pyinstaller==3.1; cp misc/vaex.spec .; pyinstaller --exclude-module matplotlib.backends.tkagg --exclude-module tkinter vaex.spec; fi
+ - if [[ $TRAVIS_OS_NAME == linux ]]; then echo "release"; pip install pyinstaller==3.1; cp misc/vaex.spec .; pyinstaller --exclude-module matplotlib.backends.backend_tkagg --exclude-module tkinter vaex.spec; fi
  - ls build
  - ls dist
  - if [[ $TRAVIS_OS_NAME == osx ]];   then export BINARY_ZIPPED=dist/${PACKAGE_NAME}.zip;    export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.zip; fi
