@@ -35,6 +35,10 @@ before_install:
      python3 -m venv venv;
      source venv/bin/activate;
      fi
+  - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
+     python -m venv venv;
+     source venv/bin/activate;
+    fi
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
   - pip install numpy # kapteyn package complaints otherwise
