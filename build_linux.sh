@@ -1,3 +1,4 @@
+#!/bin/bash
 set -x
 ls /opt/python/
 export PATH=/opt/python/3.5/bin:$PATH
