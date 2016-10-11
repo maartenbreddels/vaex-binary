@@ -39,7 +39,7 @@ before_install:
      which python;
      echo "activate venv"
      python -m venv venv;
-     source activate venv
+     source activate venv;
      which python;
     fi
   - git clone https://github.com/maartenbreddels/vaex
