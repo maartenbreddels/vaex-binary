@@ -32,7 +32,7 @@ install:
  - pip install -e .
  - pip install PyQt5
  - pip install qtconsole appdirs
- - pip install setuptools == 19.2
+ - pip install setuptools==19.2
 script:
 # - python test/dataset.py
  - export PACKAGE_NAME=`python -c "import vaex; print(vaex.__build_name__)"`
