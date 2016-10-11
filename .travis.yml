@@ -38,13 +38,14 @@ before_install:
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
      which python;
      echo "activate venv";
-     pip install --user virtualenv;
+     pip install virtualenv;
      virtualenv venv;
      source venv/bin/activate;
      which python;
      which pip;
      which virtualenv;
      ls venv/bin;
+     pip install requests[security]; # see http://stackoverflow.com/questions/29134512/insecureplatformwarning-a-true-sslcontext-object-is-not-available-this-prevent
     fi
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
