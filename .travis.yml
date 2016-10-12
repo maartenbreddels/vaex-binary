@@ -24,7 +24,7 @@ script:
 # - pip install numpy
 # - pip install -r vaex/requirements.txt
 # - pip install -e vaex
- - curl http://vaex.astro.rug.nl/install_conda | bash -- --dev
+ - curl http://vaex.astro.rug.nl/install_conda.sh | bash -- --dev
  - export PACKAGE_NAME=`python -c "import vaex; print(vaex.__build_name__)"`
  - echo $PACKAGE_NAME
  - echo $TRAVIS_OS_NAME
