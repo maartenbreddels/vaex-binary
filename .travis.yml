@@ -34,6 +34,6 @@ script:
  - if [[ $TRAVIS_OS_NAME == linux ]]; then cd vaex/dist; tar zcfv ${PACKAGE_NAME}.tar.gz ${PACKAGE_NAME}; cd ../..; fi
  - echo $BINARY_ZIPPED
  - bash dropbox_uploader.sh upload ${BINARY_ZIPPED} ${BINARY_ZIPPED_BARE}
- - if [[ $TRAVIS_OS_NAME == osx ]];   then bash dropbox_uploader.sh upload vaex/py2app_log.txt py2app_log.txt fi
+ - if [[ $TRAVIS_OS_NAME == osx ]];   then bash dropbox_uploader.sh upload vaex/py2app_log.txt py2app_log.txt; fi
 
 
