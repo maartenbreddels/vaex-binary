@@ -6,6 +6,6 @@ conda install pyqt=4
 pip install py2app
 cd vaex
 python setup.py install
-python setup.py py2app
+python setup.py py2app &> py2app_log.txt
 cd ..
 conda list
