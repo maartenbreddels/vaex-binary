@@ -7,3 +7,4 @@ cd vaex
 python setup.py install
 python setup.py py2app
 cd ..
+conda list
