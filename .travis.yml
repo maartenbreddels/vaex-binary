@@ -24,6 +24,8 @@ script:
  - if [[ $TRAVIS_OS_NAME == osx ]]; then bash build_osx.sh; fi
  - if [[ $TRAVIS_OS_NAME == linux ]]; then bash build_linux.sh; fi
  - export PATH=$HOME/miniconda-vaex/bin:$PATH
+ - python -c "import vaex; print(vaex.__file__)"
+ - python -c "import vaex; print(dir(vaex))"
  - export PACKAGE_NAME=`python -c "import vaex; print(vaex.__build_name__)"`
  - echo $PACKAGE_NAME
  - echo $TRAVIS_OS_NAME
