@@ -12,8 +12,8 @@ conda config --set always_yes yes --set changeps1 no
 conda update -q conda
 conda info -a
 
-conda create -q -n vaex python=2 pyqt=4 numpy scipy pyqt matplotlib pyopengl h5py numexpr astropy tornado
-conda install -c conda-forge kapteyn
+conda create -q -n vaex python=2 pyqt=4 numpy scipy astropy matplotlib h5py pyopengl tornado future futures pyyaml Pillow
+conda install -c conda-forge kapteyn cachetools progressbar2
 source activate vaex
 
 pip install py2app
