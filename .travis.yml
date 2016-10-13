@@ -23,19 +23,20 @@ install:
 script:
  - if [[ $TRAVIS_OS_NAME == osx ]]; then bash build_osx.sh; export PATH=$HOME/miniconda-vaex/bin:$PATH; hash -r; source activate vaex; fi
  - if [[ $TRAVIS_OS_NAME == linux ]]; then bash build_linux.sh; source venv/bin/activate; fi
- - export PATH=$HOME/miniconda-vaex/bin:$PATH
- - cd vaex
+ - echo $PATH
+ - which python
+ - if [[ $TRAVIS_OS_NAME == linux ]]; then cd vaex; fi
  - python -c "import vaex; print(vaex.__file__)"
  - python -c "import vaex; print(dir(vaex))"
  - export PACKAGE_NAME=`python -c "import vaex; print(vaex.__build_name__)"`
  - echo $PACKAGE_NAME
  - echo $TRAVIS_OS_NAME
- - cd ..
+ - if [[ $TRAVIS_OS_NAME == linux ]]; then cd ..; fi
  - ls vaex/build
  - ls vaex/dist
  - if [[ $TRAVIS_OS_NAME == osx ]];   then export BINARY_ZIPPED=vaex/dist/${PACKAGE_NAME}.zip;    export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.zip; fi
  - if [[ $TRAVIS_OS_NAME == linux ]]; then export BINARY_ZIPPED=vaex/dist/${PACKAGE_NAME}.tar.gz; export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.tar.gz; fi
- - if [[ $TRAVIS_OS_NAME == linux ]]; then cd vaex/dist; tar zcfv ${PACKAGE_NAME}.tar.gz ${PACKAGE_NAME}; cd ../..; fi
+ - if [[ $TRAVIS_OS_NAME == linux ]]; then cd vaex/dist; tar zcf ${PACKAGE_NAME}.tar.gz ${PACKAGE_NAME}; cd ../..; fi
  - echo $BINARY_ZIPPED
  - bash dropbox_uploader.sh upload ${BINARY_ZIPPED} ${BINARY_ZIPPED_BARE}
  - if [[ $TRAVIS_OS_NAME == osx ]];   then bash dropbox_uploader.sh upload vaex/py2app_log.txt py2app_log.txt; fi
