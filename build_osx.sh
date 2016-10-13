@@ -2,7 +2,7 @@
 
 #curl http://vaex.astro.rug.nl/install_conda.sh | bash -s -- --dev --python 2 --pyqt 4
 
-wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh
+wget https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -O miniconda.sh
 
 bash miniconda.sh -b -p ~/miniconda-vaex
 export PATH=$HOME/miniconda-vaex/bin:$PATH
@@ -12,11 +12,10 @@ conda config --set always_yes yes --set changeps1 no
 conda update -q conda
 conda info -a
 
-conda install python=2 pyqt=4 numpy scipy pyqt matplotlib pyopengl h5py numexpr astropy tornado
+conda create -q -n vaex python=2 pyqt=4 numpy scipy pyqt matplotlib pyopengl h5py numexpr astropy tornado
 conda install -c conda-forge kapteyn
+source activate vaex
 
-
-export PATH=$HOME/miniconda-vaex/bin:$PATH
 pip install py2app
 pip install -r vaex/requirements.txt
 pip install -e ./vaex
