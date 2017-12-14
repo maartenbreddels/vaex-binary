@@ -13,6 +13,7 @@ rm -f $FILE ${FILE}c;
 
 git clone https://github.com/maartenbreddels/vaex
 cd vaex
+git checkout packages
 
 pip install numpy # kapteyn package complaints otherwise
 pip install -r requirements.txt
