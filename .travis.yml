@@ -1,6 +1,15 @@
 #language: c
 language: python
 
+deploy:
+  provider: releases
+  api_key: $GITHUB_API_KEY'
+  file_glob: true
+    file: vaex/dist/vaex-*
+  skip_cleanup: true
+  on:
+    tags
+
 matrix:
   include:
     - os: linux
@@ -38,7 +47,7 @@ script:
  - if [[ $TRAVIS_OS_NAME == linux ]]; then export BINARY_ZIPPED=vaex/dist/${PACKAGE_NAME}.tar.gz; export BINARY_ZIPPED_BARE=${PACKAGE_NAME}.tar.gz; fi
  - if [[ $TRAVIS_OS_NAME == linux ]]; then cd vaex/dist; tar zcf ${PACKAGE_NAME}.tar.gz ${PACKAGE_NAME}; cd ../..; fi
  - echo $BINARY_ZIPPED
- - bash dropbox_uploader.sh upload ${BINARY_ZIPPED} ${BINARY_ZIPPED_BARE}
- - if [[ $TRAVIS_OS_NAME == osx ]];   then bash dropbox_uploader.sh upload vaex/py2app_log.txt py2app_log.txt; fi
+ # - bash dropbox_uploader.sh upload ${BINARY_ZIPPED} ${BINARY_ZIPPED_BARE}
+ # - if [[ $TRAVIS_OS_NAME == osx ]];   then bash dropbox_uploader.sh upload vaex/py2app_log.txt py2app_log.txt; fi
 
 
