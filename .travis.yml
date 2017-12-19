@@ -5,7 +5,7 @@ deploy:
   provider: releases
   api_key: $GITHUB_API_KEY'
   file_glob: true
-    file: vaex/dist/vaex-*
+  file: vaex/dist/vaex-*
   skip_cleanup: true
   on:
     tags
